@@ -30,7 +30,7 @@ app = web.Application()
 sio.attach(app)
 
 @sio.event
-async def connect(sid):
+async def connect(sid, environ):
     with data_lock:
         connected_clients.add(sid)
     print(f"Client connected: {sid}")
